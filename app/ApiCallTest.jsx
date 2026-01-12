@@ -8,10 +8,10 @@ export default function ApiCallTest() {
     }, []);
     return
     (
-        <View>
-            <Text>
-                {json.stringify(data)}
-            </Text>
-        </View>
+        
+        
+        <Text>
+            {json.stringify(data)}
+        </Text>
     )
 }
