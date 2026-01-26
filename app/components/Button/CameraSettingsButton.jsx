@@ -11,9 +11,8 @@ export default function CameraSettingsButton({name, size, color, onPress, text})
     </View>
   );
 }
-
 const styles = StyleSheet.create ({
-    view: {
+    view:{
         justifyContent: 'center',
         alignItems: 'center',
     },
