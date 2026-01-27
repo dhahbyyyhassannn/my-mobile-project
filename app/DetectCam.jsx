@@ -3,7 +3,7 @@ import { Button, Text, View, StyleSheet } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import CameraSettingsButton from './components/Button/CameraSettingsButton';
-
+import HeaderPage from './components/Layout/HeaderPage';
 
 export default function DetectCam() {
   const [permission, requestPermission] = useCameraPermissions();
@@ -25,47 +25,50 @@ export default function DetectCam() {
   }
 
   return (
-    <View style={styles.screen}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>
-          Détecter votre code a barre
-          ou votre code QR
-        </Text>
-        <MaterialCommunityIcons name="qrcode-scan" size={30} color="#FFF9FB" />
-      </View>
-      <View style={styles.cameraFrame}>
-        <View style={styles.cameraContainer}>
-          <CameraView style={styles.camera} facing={cameraFacing} flash={cameraFlash} 
-          barcodeScannerSettings={{
-            barcodeTypes:
-              ["qr","ean13", "ean8", "upc_e", "upc_a", "code39", 
-              "code93", "code128", "pdf417", "aztec", "datamatrix",
-              "itf14"]
-          }}
-          onBarcodeScanned={({ data, type }) => {
-            setScannedData(`Type: ${type} - Data: ${data}`);}}
-          />
+    <>
+      <HeaderPage titre='camera scan' />
+      <View style={styles.screen}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>
+            Détecter votre code a barre
+            ou votre code QR
+          </Text>
+          <MaterialCommunityIcons name="qrcode-scan" size={30} color="#FFF9FB" />
         </View>
-        <View style={styles.cameraSettings}>
-          <CameraSettingsButton 
-          text="tourner la camera" name="camera-reverse-sharp" size={30} color="#FFF9FB" 
-          onPress={() => {
-            setCameraFacing(cameraFacing === 'back' ? 'front' : 'back');
-          }}
-          />
-          <CameraSettingsButton text='on/off' name={cameraFlash === 'off' ? 'flash-off' : 'flash'} size={30} color="#FFF9FB" 
-          onPress={() => {
-            setCameraFlash(cameraFlash === 'off' ? 'on' : 'off');
-          }}/>
+        <View style={styles.cameraFrame}>
+          <View style={styles.cameraContainer}>
+            <CameraView style={styles.camera} facing={cameraFacing} flash={cameraFlash} 
+            barcodeScannerSettings={{
+              barcodeTypes:
+                ["qr","ean13", "ean8", "upc_e", "upc_a", "code39", 
+                "code93", "code128", "pdf417", "aztec", "datamatrix",
+                "itf14"]
+            }}
+            onBarcodeScanned={({ data, type }) => {
+              setScannedData(`Type: ${type} - Data: ${data}`);}}
+            />
+          </View>
+          <View style={styles.cameraSettings}>
+            <CameraSettingsButton 
+            text="tourner la camera" name="camera-reverse-sharp" size={30} color="#FFF9FB" 
+            onPress={() => {
+              setCameraFacing(cameraFacing === 'back' ? 'front' : 'back');
+            }}
+            />
+            <CameraSettingsButton text='on/off' name={cameraFlash === 'off' ? 'flash-off' : 'flash'} size={30} color="#FFF9FB" 
+            onPress={() => {
+              setCameraFlash(cameraFlash === 'off' ? 'on' : 'off');
+            }}/>
+          </View>
+        </View>
+        <View style={styles.resultContainer}>
+            <Text>Résultat du scan:</Text>
+            {scannedData && <Text>
+                {scannedData}
+              </Text>}
         </View>
       </View>
-      <View style={styles.resultContainer}>
-          <Text>Résultat du scan:</Text>
-          {scannedData && <Text>
-              {scannedData}
-            </Text>}
-      </View>
-    </View>
+    </>
   );
 }
 

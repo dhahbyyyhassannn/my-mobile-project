@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, Pressable, TextInput, Alert, ToastAndroid } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 
 export default function DetectScan() {
@@ -61,7 +62,7 @@ export default function DetectScan() {
                     <Text style={styles.barcodeText}>{scanBarcode}</Text>
                 </View>
             ) : (
-                <Image style={styles.image} source={require('../assets/barcode-read.png')} />
+                <AntDesign name="barcode" size={24} color="black" />
             )}
             {/* hidden input to receive scanner input (hardware scanner sends as keyboard input) */}
             <TextInput
@@ -75,7 +76,7 @@ export default function DetectScan() {
                 keyboardType="visible-password"
             />
             <Pressable style={({pressed}) => [styles.btn, pressed && styles.btnHover]} onPress={() => navigation.goBack()}>
-                <Image style={styles.arrow} source={require('../assets/arrow-left.png')} />
+                <AntDesign name="arrow-left" size={24} color="black" />
                 <Text style={styles.btnText}>retourner</Text>
             </Pressable>
         </View>
