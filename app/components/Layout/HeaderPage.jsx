@@ -13,7 +13,7 @@ export default function HeaderPage({ titre }) {
                 <View style={ [styles.header, {paddingTop: currentTopPadding}] }>
                     <AntDesign name="arrow-left" size={24} color="white" onPress={() => navigation.goBack()} />
                     <Text style={styles.text}>{titre}</Text>
-                    <AntDesign name="menu" size={24} color="white" />
+                    <AntDesign />
                 </View>
             </View>
         </>

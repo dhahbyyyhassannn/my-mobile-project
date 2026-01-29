@@ -16,12 +16,9 @@ export default function HomePage() {
         <>
             <HeaderPage titre="ScanAura"/>
             <View style={ styles.container }>
-                <View style={ { paddingBottom: 10 } }>
-                    <HomeButton icon={'unordered-list'} text={'liste des actifs'} onPress={() => navigation.navigate('ListeDesActifs')} />
-                </View>
                 <View style={styles.rows}>
-                    <HomeButton icon={'camera'} text={'detecter avec la camera'} onPress={() => navigation.navigate('DetectCam')} />
-                    <HomeButton icon={'barcode'} text={'detecter avec le laser'} onPress={() => navigation.navigate('Detecter')} />
+                    <HomeButton icon={'plus'} text={'ajouter un inventaire'} onPress={() => navigation.navigate('AjoutInventaire')} />
+                    <HomeButton icon={'unordered-list'} text={'liste des actifs'} onPress={() => navigation.navigate('ListeDesActifs')} />
                 </View>
                 <View style={styles.rows}>
                     <HomeButton icon={'sync'} text={'sync'} onPress={synch} />
