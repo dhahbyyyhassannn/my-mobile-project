@@ -1,9 +1,11 @@
 import { View, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import HeaderPage from './components/Layout/HeaderPage'; 
 import HomeButton from './components/Card/HomeButton';
 
 export default function AjoutInventaire() {
-    return (
+    const navigation = useNavigation();
+    return (    
         <>
             <HeaderPage titre={'ajouter un inventaire'} />
             <View style={styles.container}>
