@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#182B32',
         height: 70,
         width: '100%',
-        overflow: 'hidden',
         padding: 5,
     },
     text: {

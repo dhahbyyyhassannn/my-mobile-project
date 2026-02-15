@@ -133,6 +133,6 @@ const styles = StyleSheet.create ({
     fontSize: 12,
   },
   resultContainer: {
-    backgroundColor: 'red',
+    backgroundColor: '#7C898B',
   }
 })
