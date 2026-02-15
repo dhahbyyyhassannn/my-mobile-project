@@ -5,7 +5,7 @@ import BarStatus from './BarStatus';
 
 export default function HeaderPage({ titre }) {
     const navigation = useNavigation();
-    const currentTopPadding = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
+    const currentTopPadding = Platform.OS === 'android' ? StatusBar.currentHeight : 0; 
     return (
         <>
             <View>
@@ -19,7 +19,6 @@ export default function HeaderPage({ titre }) {
         </>
     )
 }
-
 const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
